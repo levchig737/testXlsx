@@ -9,9 +9,19 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+/**
+ * Вспомогательный утилитарный класс для работы с XLSX-файлами.
+ */
 @Component
 public class XlsxReader {
 
+    /**
+     * Открывает XLSX-файл и возвращает объект {@link Workbook}.
+     *
+     * @param filePath Путь к локальному XLSX-файлу.
+     * @return {@link Workbook}, содержащий данные из файла.
+     * @throws XlsxReadException Если произошла ошибка при чтении файла.
+     */
     public static Workbook getWorkbook(String filePath) {
         try {
             FileInputStream fis = new FileInputStream(new File(filePath));

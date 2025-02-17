@@ -1,6 +1,7 @@
 package org.example.services.impl;
 
 import org.apache.poi.ss.usermodel.*;
+import org.example.exceptions.CountNumsException;
 import org.example.services.XlsxService;
 import org.example.utils.XlsxReader;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public class XlsxServiceImpl implements XlsxService {
 
         // Проверяем, есть ли вообще N чисел в файле
         if (count < n) {
-            throw new IllegalArgumentException("В файле недостаточно чисел для поиска N-го максимального.");
+            throw new CountNumsException("В файле недостаточно чисел для поиска N-го максимального.");
         }
 
         return minHeap.peek();
